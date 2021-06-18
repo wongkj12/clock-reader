@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:opencv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <org.opencv.android.JavaCameraView
+        android:id="@+id/CameraView"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        opencv:show_fps="true" />
+
+    <Button
+        android:id="@+id/Crop"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="set_crop"
+        android:text="Crop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:id="@+id/text1"/>
+
+    <Button
+        android:id="@+id/Warp"
+        android:textSize="13sp"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Crop"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="set_warp"
+        android:text="Warp" />
+
+    <Button
+        android:id="@+id/Dilate"
+        android:layout_width="75dp"
+        android:textSize="11sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Warp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="set_dil"
+        android:text="Dilate" />
+
+    <Button
+        android:id="@+id/Thresh"
+        android:textSize="10sp"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Dilate"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="set_thresh"
+        android:text="Thresh" />
+    <Button
+        android:id="@+id/Default"
+        android:textSize="9sp"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Thresh"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="set_default"
+        android:text="Default" />
+
+</RelativeLayout>
