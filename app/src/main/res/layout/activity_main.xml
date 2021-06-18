@@ -13,39 +13,40 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        opencv:show_fps="true" />
+        opencv:show_fps="false" />
 
     <Button
         android:id="@+id/Crop"
         android:layout_width="75dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:onClick="set_crop"
         android:text="Crop" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/white"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
         android:id="@+id/text1"/>
 
     <Button
         android:id="@+id/Warp"
         android:textSize="13sp"
         android:layout_width="75dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@id/Crop"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:onClick="set_warp"
         android:text="Warp" />
 
@@ -53,7 +54,7 @@
         android:id="@+id/Dilate"
         android:layout_width="75dp"
         android:textSize="11sp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@id/Warp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -65,9 +66,9 @@
 
     <Button
         android:id="@+id/Thresh"
-        android:textSize="10sp"
+        android:textSize="9sp"
         android:layout_width="75dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@id/Dilate"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -80,7 +81,7 @@
         android:id="@+id/Default"
         android:textSize="9sp"
         android:layout_width="75dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@id/Thresh"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
