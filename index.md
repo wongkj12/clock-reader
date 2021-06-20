@@ -28,8 +28,12 @@ Assuming that most clock faces are perfect circles, we can make use of [Hough Ci
  
  ![warpPolar](/warpPolar.png)
  
-        warped = cv2.warpPolar(img, dsize=(0,0), center=center,
-                        maxRadius=radius, flags=cv2.WARP_POLAR_LINEAR))
+    warped = cv2.warpPolar(img, dsize=(0,0), center=center,
+                    maxRadius=radius, flags=cv2.WARP_POLAR_LINEAR))
+                        
+ ![warpPolar2](/warpPolar2.png)
+ 
+                        
                         
 
 
