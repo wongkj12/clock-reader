@@ -1,10 +1,15 @@
-## Welcome to GitHub Pages
+# Clock Reader
 
-You can use the [editor on GitHub](https://github.com/wongkj12/clock-reader/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Have you ever struggled to read analogue clocks? Don't be embarrassed, you can use my Automatic Analogue Clock Reader! *(Note: App not deployed and was never meant for production use)*
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![Analogue Clock Reader](/clock_example.gif)
 
-### Markdown
+This was built in Android Studio with OpenCV Java. Code found [here](github.com/wongkj12/clock-reader).
+
+The following examples will refer to OpenCV in Python for ease of explanation.
+
+
+## How it works
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
