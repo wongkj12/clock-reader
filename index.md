@@ -12,13 +12,17 @@ In a nutshell, the algorithm works by using OpenCV's (an image processing librar
 
     import cv2
 
-First, our algorithm needs to find the clock face. Assuming that most clock faces are perfect circles, we can make use of [Hough Circle Transform](https://docs.opencv.org/3.4/d4/d70/tutorial_hough_circle.html):
+### 1. Detect and crop out clock face
+
+Assuming that most clock faces are perfect circles, we can make use of [Hough Circle Transform](https://docs.opencv.org/3.4/d4/d70/tutorial_hough_circle.html):
 
     img = cv2.medianblur(img, 5) #Reduces noise before detection
     circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, min_dist=width/16,
                                param_1=100, param_2=30, minRadius=50, maxRadius=100)
                                
  `circles[0][0]` will return an array containing the radius & coordinates of the center of the best circle detected.
+ 
+ ### 2. "Unroll" the clock face using WarpPolar
 
 
   
