@@ -18,11 +18,19 @@ Assuming that most clock faces are perfect circles, we can make use of [Hough Ci
 
     img = cv2.medianblur(img, 5) #Reduces noise before detection
     circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, min_dist=width/16,
-                               param_1=100, param_2=30, minRadius=50, maxRadius=100)
+                        param_1=100, param_2=30, minRadius=50, maxRadius=100)
                                
  `circles[0][0]` will return an array containing the radius & coordinates of the center of the best circle detected.
  
- ### 2. "Unroll" the clock face using WarpPolar
+ ### 2. "Unroll" the clock face using warpPolar
+ 
+ We can apply a warpPolar transformation, which remaps an image to polar coordinates space. Loosely speaking, this is what it means:
+ 
+ ![warpPolar](/warpPolar.png)
+ 
+        warped = cv2.warpPolar(img, dsize=(0,0), center=center,
+                        maxRadius=radius, flags=cv2.WARP_POLAR_LINEAR))
+                        
 
 
   
