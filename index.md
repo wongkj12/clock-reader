@@ -53,7 +53,45 @@ Right now, it's quite clear to us which blobs represent the minute and hour hand
 
 Next, we'll apply an Inverse [Binary Threshold](https://docs.opencv.org/3.4/db/d8e/tutorial_threshold.html), which basically makes the bright parts of the image completely black, and the dark parts of the image completely white:
 
+    thresh = 100
+    maxValue = 255
+    th,binary = cv2.threshold(cv2.cvtColor(dil,cv2.COLOR_BGR2GRAY), thresh, maxValue, cv2.THRESH_BINARY_INV)
+
 ![binary_threshold](/binary_threshold.png)
+
+Now it'll be much easier for the computer to recognise the desired features given a binary image.
+
+### 5. Detect the "blobs" by finding image contours
+
+What we have in our transformed image right now are [contours](https://docs.opencv.org/3.4/d4/d73/tutorial_py_contours_begin.html), curves joining all the continuous points along the boundary of an area, having the same color or intensity. These are very easy to detect using OpenCV:
+
+    contours, hierarchy = cv2.findContours(binary, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+We'll sort the contours of the image by area in order to find the clock hands. Theoretically, the two largest contours left on the image should only be the hour and minute hands since we had done all that filtering.
+
+     contours.sort(key = cv2.contourArea,reverse = True)
+
+In order to differentiate between the hour and minute hands, consider the contours' max x-values. Since the minute hand is longer, it's maximum x-value pixel should be greater:
+
+    max0 = max(pix[0][0] for pix in contours[0])
+    max1 = max(pix[0][0] for pix in contours[1])
+    if max0 >= max1:
+        minute = contours[0]
+        hour = contours[1]
+    else:
+        minute = contours[1]
+        hour = contours[0]
+
+### 6. Calculations
+ 
+And we are pretty much done! We can work backwards to find the approximate time by using the relative average y-values of the contours we found. After that, with some troublesome trigonometry we can redraw the clock hands on our original image:
+
+![final_clock](/final_clock.png)
+
+Nice! We never have to read another analogue clock again.
+     
+ 
+ 
 
 
     
