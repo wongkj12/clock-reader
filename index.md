@@ -8,9 +8,23 @@ The following examples will refer to OpenCV in Python for ease of explanation.
 
 ## How it works
 
-In a nutshell, the algorithm works by using OpenCV's (an image processing/computer vision library) various filters (see: [morphological transformations](https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html), [geometric transformations](https://docs.opencv.org/4.5.2/da/d6e/tutorial_py_geometric_transformations.html)) to eventually extract the features that we want, i.e. clock hands, in order to read the time.
+In a nutshell, the algorithm works by using OpenCV's (an image processing library) various filters (see: [morphological transformations](https://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html), [geometric transformations](https://docs.opencv.org/4.5.2/da/d6e/tutorial_py_geometric_transformations.html)) to eventually extract the features that we want, i.e. clock hands, in order to read the time.
+
+    import cv2
 
 First, our algorithm needs to find the clock face. Assuming that most clock faces are perfect circles, we can make use of [Hough Circle Transform](https://docs.opencv.org/3.4/d4/d70/tutorial_hough_circle.html):
+
+    img = cv2.medianblur(img, 5) #Reduces noise before detection
+    circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, min_dist=width/16,
+                               param_1=100, param_2=30, minRadius=50, maxRadius=100)
+                               
+ `circles[0][0]` will return an array containing the radius & coordinates of the center of the best circle detected.
+
+
+  
+    
+
+    
 
 
 
