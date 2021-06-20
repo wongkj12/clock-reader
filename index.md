@@ -37,7 +37,28 @@ The minute and second hands can be identified by the two thickest blobs pointing
 
 ### 3. Dilation
 
-Next, we apply a [dilation](https://docs.opencv.org/3.4/db/df6/tutorial_erosion_dilatation.html) to the whole image:
+The dilation operation essentially makes the bright parts of an image grow. This generally helps to remove the second hand (as it is too thin), as well as uneccessary features like the numbers on the clock face. We can apply a [dilation](https://docs.opencv.org/3.4/db/df6/tutorial_erosion_dilatation.html) to the whole image:
+
+    # kernel will be a 1xW rectangle
+    # where W = 15% of the warped image's width
+    kernel_width = int(round(0.15*warped.shape[1]))
+    kernel = np.ones((1,kernel_width),np.uint8)
+    dil = cv2.dilate(warped,kernel,1)
+
+![dilation](/dilation.png)
+
+Right now, it's quite clear to us which blobs represent the minute and hour hands, but still not easy enough for the computer to read.
+
+### 4. Make it black-and-white with (Inverse) Binary Thresholding
+
+Next, we'll apply an Inverse [Binary Threshold](https://docs.opencv.org/3.4/db/d8e/tutorial_threshold.html), which basically makes the bright parts of the image completely black, and the dark parts of the image completely white:
+
+![binary_threshold](/binary_threshold.png)
+
+
+    
+
+
 
 
  
