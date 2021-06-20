@@ -22,9 +22,9 @@ Assuming that most clock faces are perfect circles, we can make use of [Hough Ci
                                
  `circles[0][0]` will return an array containing the radius & coordinates of the center of the best circle detected.
  
- ### 2. "Unroll" the clock face using warpPolar
+### 2. "Unroll" the clock using warpPolar
  
- We can apply a warpPolar transformation, which remaps an image to polar coordinates space. Loosely speaking, this is what it means:
+We can apply a [warpPolar](https://docs.opencv.org/3.4/da/d54/group__imgproc__transform.html#ga49481ab24fdaa0ffa4d3e63d14c0d5e4) transformation, which remaps an image to polar coordinates space. Loosely speaking, this is what it means:
  
  ![warpPolar](/warpPolar.png)
  
@@ -32,6 +32,15 @@ Assuming that most clock faces are perfect circles, we can make use of [Hough Ci
                     maxRadius=radius, flags=cv2.WARP_POLAR_LINEAR))
                         
  ![warpPolar2](/warpPolar2.png)
+ 
+The minute and second hands can be identified by the two thickest blobs pointing towards the right. This might make it easier for our algorithm to read the hands as they are now simply pointing horizontally rather than radiating from the centre at varying angles.
+
+### 3. Dilation
+
+Next, we apply a [dilation](https://docs.opencv.org/3.4/db/df6/tutorial_erosion_dilatation.html) to the whole image:
+
+
+ 
  
                         
                         
