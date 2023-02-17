@@ -1,4 +1,4 @@
-Have you ever struggled to read analogue clocks? Don't be embarrassed, you can use my Automatic Analogue Clock Reader! *(Note: App not deployed and was never meant for production use)*
+Have you ever struggled to read analogue clocks? Don't be embarrassed, you can use my Automatic Analogue Clock Reader! 
 
 ![Analogue Clock Reader](/clock_example.gif)
 
