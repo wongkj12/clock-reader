@@ -2,7 +2,7 @@ Have you ever struggled to read analogue clocks? Don't be embarrassed, you can u
 
 ![Analogue Clock Reader](/clock_example.gif)
 
-This was built in Android Studio with OpenCV Java. Code found [here](github.com/wongkj12/clock-reader).
+This was built in Android Studio with OpenCV Java. Code found [here](https://github.com/wongkj12).
 
 The following examples will refer to OpenCV in Python for ease of explanation.
 
